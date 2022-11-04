@@ -2,10 +2,11 @@ import argparse
 import requests
 from multiprocessing import Pool
 from os.path import join
+from os import makedirs
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--dir', type=str, help="Save directory")
-parser.add_argument('--nproc', type=int, help="Number of processes", default=8)
+parser.add_argument('--dir', type=str, help="Save directory", default='./especes')
+parser.add_argument('--nproc', type=int, help="Number of processes", default=4)
 args = parser.parse_args()
 
 def download_pdf(url, loc):
@@ -23,6 +24,8 @@ def download_pdf(url, loc):
 
 
 # -------------------------------------------------------------------------------------------------<
+
+makedirs(args.dir, exist_ok=True)
 
 url_root = "https://especes.org/wp-content/uploads"
 

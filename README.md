@@ -8,5 +8,5 @@ pip install requests
 
 ```bash
 source env/bin/activate
-python especes-dl.py --dir ./especes --nproc 16
+python especes-dl.py --dir ./especes
 ```
